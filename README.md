@@ -4,6 +4,20 @@
 - 개발 기간 : 2023.11.15 ~ 2023.11.28
 - 개발 인원 : 4명
 
+## 2. ⚙️기술 스택 
+### ✔️Frond-end
+<img src="https://img.shields.io/badge/React-61DAFB?style=for-the-badge&logo=React&logoColor=black"><img src="https://img.shields.io/badge/Css-1572B6?style=for-the-badge&logo=Css&logoColor=white"><img src="https://img.shields.io/badge/node.js-339933?style=for-the-badge&logo=Node.js&logoColor=white"><img src="https://img.shields.io/badge/bootstrap-7952B3?style=for-the-badge&logo=bootstrap&logoColor=white"><img src="https://img.shields.io/badge/javascript-F7DF1E?style=for-the-badge&logo=javascript&logoColor=black"><img src="https://img.shields.io/badge/html5-E34F26?style=for-the-badge&logo=html5&logoColor=white"><img src="https://img.shields.io/badge/thymeleaf-005F0F?style=for-the-badge&logo=thymeleaf&logoColor=white">
+
+### ✔️Back-end
+ <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"><img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=green"><img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=yellow"><img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> 
+
+## 🦹‍ Team
+|김대영|목진혁|조혜나|조소미|
+|:---:|:---:|:---:|:---:|
+|[daeyounggg](https://github.com/daeyounggg)|[MJinHyuk](https://github.com/MJinHyuk)|[hyenaaaaaaa](https://github.com/hyenaaaaaaa)|[somi9954](https://github.com/somi9954)|
+|![](https://avatars.githubusercontent.com/u/137499608?v=4)|![](https://avatars.githubusercontent.com/u/147026593?v=4)|![](https://avatars.githubusercontent.com/u/147026641?v=4)|![](https://avatars.githubusercontent.com/u/137499604?v=4)|
+
+
 # 📋 기능 명세서
 ## 1. 관리자 페이지
 ### 기본 설정
