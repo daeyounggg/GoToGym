@@ -19,6 +19,12 @@ public class DiaryController {
         return diaryService.getAllDiaries();
     }
 
+    @GetMapping("/member/{memberId}")
+    public List<Diary> getExerciseRecordsByMemberId(@PathVariable Long memberId) {
+        return diaryService.getExerciseRecordsByMemberId(memberId);
+    }
+
+
     @PostMapping
     public Diary saveDiary(@RequestBody Diary diary) {
         return diaryService.saveDiary(diary);

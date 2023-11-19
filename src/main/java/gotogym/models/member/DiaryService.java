@@ -19,4 +19,8 @@ public class DiaryService {
     public Diary saveDiary(Diary Diary){
         return diaryRepository.save(Diary);
     }
+
+    public List<Diary> getExerciseRecordsByMemberId(Long memberId) {
+        return diaryRepository.findByMemberId(memberId);
+    }
 }
