@@ -7,8 +7,8 @@ import cookie from 'react-cookies';
  * @param form
  * @returns
  */
-export const loginProcess = (form) => (Promise) =>
-  new Promise()((resolve, reject) =>
+export const loginProcess = (form) =>
+  new Promise((resolve, reject) =>
     apiRequest('/member/token', 'POST', form)
       .then((res) => {
         if (res.data.success) {
@@ -23,7 +23,7 @@ export const loginProcess = (form) => (Promise) =>
 
 /** 회원정보 조회  */
 export const getLoginInfo = () =>
-  new Promise()((resolve, reject) => {
+  new Promise((resolve, reject) => {
     const token = cookie.load('token');
     if (!token) {
       reject('login.fail');
