@@ -65,10 +65,7 @@ const JoinContainer = () => {
 
             navigate('/login');
           } else {
-            if (result.data.message) {
-              _errors.global.push(...result.data.message.split('||'));
-              setErrors(() => _errors);
-            }
+            setErrors(() => result.message);
           }
         })
         .catch((err) => {});

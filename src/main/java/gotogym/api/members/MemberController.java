@@ -21,6 +21,7 @@ import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -77,8 +78,8 @@ public class MemberController {
 
     private void errorProcess(Errors errors) {
         if (errors.hasErrors()) {
-            List<String> errorMessages = Utils.getMessages(errors);
-            throw new BadRequestException(errorMessages.stream().collect(Collectors.joining("||")));
+            Map<String, List<String>> errorMessages = Utils.getMessages(errors);
+            throw new BadRequestException(errorMessages);
         }
     }
 
