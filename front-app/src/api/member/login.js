@@ -26,7 +26,7 @@ export const getLoginInfo = () =>
   new Promise((resolve, reject) => {
     const token = cookie.load('token');
     if (!token) {
-      reject('login.fail');
+      reject('Login_fail');
       return;
     }
 

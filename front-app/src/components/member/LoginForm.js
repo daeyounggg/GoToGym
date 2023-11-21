@@ -72,6 +72,7 @@ const LoginForm = ({ onSubmit, onChange, errors }) => {
       <BigButton type="submit" size="medium" className="mt5">
         {t('로그인')}
       </BigButton>
+      {errors.global && <Message>{errors.global}</Message>}
 
       <div className="links">
         <Link to="/find_id">
@@ -84,8 +85,6 @@ const LoginForm = ({ onSubmit, onChange, errors }) => {
           <FiUserPlus /> {t('회원가입')}
         </Link>
       </div>
-
-      {errors.global && <Message>{errors.global}</Message>}
     </FormBox>
   );
 };

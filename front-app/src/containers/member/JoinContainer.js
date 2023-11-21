@@ -1,9 +1,11 @@
-import React, { useState, useCallback } from 'react';
+import React, { useState, useCallback, useContext, useEffect } from 'react';
 import { produce } from 'immer';
 import { useTranslation } from 'react-i18next';
 import JoinForm from '../../components/member/JoinForm';
 import { registerUser } from '../../api/member/join';
 import { useNavigate } from 'react-router-dom';
+import UserContext from '../../modules/user';
+
 const JoinContainer = () => {
   const { t } = useTranslation();
 
@@ -13,6 +15,16 @@ const JoinContainer = () => {
   const [errors, setErrors] = useState({});
 
   const navigate = useNavigate();
+
+  const {
+    state: { isLogin },
+  } = useContext(UserContext);
+  useEffect(() => {
+    if (isLogin) {
+      // 로그인한 경우는 접근 불가
+      navigate(-1);
+    }
+  }, [isLogin, navigate]);
 
   const onSubmit = useCallback(
     (e) => {
