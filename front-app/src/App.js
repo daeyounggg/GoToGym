@@ -1,5 +1,5 @@
 import { Routes, Route } from 'react-router-dom';
-import { useContext } from 'react';
+import { useContext, useEffect } from 'react';
 import { getLoginInfo } from './api/member/login';
 import FrontLayout from './layouts/front/CommonLayout';
 import NotFound from './pages/commons/NotFound';
@@ -14,13 +14,15 @@ const App = () => {
     action: { setUserInfo, setIsLogin },
   } = useContext(UserContext);
 
-  getLoginInfo()
-    .then((userInfo) => {
-      setUserInfo(userInfo);
-      setIsLogin(true);
-    })
-    .catch((err) => console.log(err));
-  /* 로그인 유지 처리 E */
+  useEffect(() => {
+    getLoginInfo()
+      .then((userInfo) => {
+        setUserInfo(userInfo);
+        setIsLogin(true);
+      })
+      .catch((err) => console.log(err));
+    /* 로그인 유지 처리 E */
+  }, []);
 
   return (
     <Routes>
