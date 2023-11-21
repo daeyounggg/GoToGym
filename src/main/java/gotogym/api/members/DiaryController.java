@@ -19,7 +19,7 @@ public class DiaryController {
         return diaryService.getAllDiaries();
     }
 
-    @GetMapping("/member/{memberId}")
+    @GetMapping("/token")
     public List<Diary> getExerciseRecordsByMemberId(@PathVariable Long memberId) {
         return diaryService.getExerciseRecordsByMemberId(memberId);
     }

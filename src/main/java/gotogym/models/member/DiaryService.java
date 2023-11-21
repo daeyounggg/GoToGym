@@ -16,8 +16,8 @@ public class DiaryService {
         return diaryRepository.findAll();
     }
 
-    public Diary saveDiary(Diary Diary){
-        return diaryRepository.save(Diary);
+    public Diary saveDiary(Diary diary){
+        return diaryRepository.save(diary);
     }
 
     public List<Diary> getExerciseRecordsByMemberId(Long memberId) {
