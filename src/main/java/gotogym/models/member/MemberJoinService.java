@@ -28,11 +28,13 @@ public class MemberJoinService {
 
     public void save(RequestJoin join) {
         String password = passwordEncoder.encode(join.password());
+        String mobile = join.mobile();
+        if (mobile != null) mobile = mobile.replaceAll("\\D", "");
         Member member = Member.builder()
                 .email(join.email())
                 .password(password)
                 .name(join.name())
-                .mobile(join.mobile())
+                .mobile(mobile)
                 .type(MemberType.USER)
                 .build();
         save(member);

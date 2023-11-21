@@ -1,25 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import { useContext, useEffect } from 'react';
+import { getLoginInfo } from './api/member/login';
+import FrontLayout from './layouts/front/CommonLayout';
+import AdminLayout from './layouts/admin/CommonLayout';
+import NotFound from './pages/commons/NotFound';
 
-function App() {
+/* 클라이언트 페이지 S */
+import Main from './pages/front/Main';
+import Login from './pages/front/member/Login';
+import Join from './pages/front/member/Join';
+import Logout from './pages/front/member/Logout';
+/* 클라이언트 페이지 E */
+
+/* 관리자 페이지 S */
+import AdminMain from './pages/admin/Main';
+/* 관리자 페이지 E */
+
+import UserContext from './modules/user';
+
+const App = () => {
+  /* 로그인 유지 처리 S */
+  const {
+    state: { isLogin },
+    action: { setUserInfo, setIsLogin, setIsAdmin },
+  } = useContext(UserContext);
+  useEffect(() => {
+    if (isLogin) {
+      return;
+    }
+
+    getLoginInfo()
+      .then((userInfo) => {
+        setUserInfo(userInfo);
+        setIsLogin(true);
+        setIsAdmin(userInfo.type === 'ADMIN'); // 관리자 여부 업데이트
+      })
+      .catch((err) => console.log(err));
+    /* 로그인 유지 처리 E */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<FrontLayout />}>
+        <Route index element={<Main />} />
+        <Route path="/join" element={<Join />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/logout" element={<Logout />} />
+      </Route>
+
+      <Route path="/admin" element={<AdminLayout />}>
+        <Route index element={<AdminMain />} />
+      </Route>
+
+      <Route path="*" element={<NotFound />} />
+    </Routes>
   );
-}
+};
 
 export default App;
