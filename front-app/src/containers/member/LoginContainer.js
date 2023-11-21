@@ -13,7 +13,7 @@ const LoginContainer = () => {
   const navigate = useNavigate();
   const {
     state: { isLogin },
-    action: { setIsLogin, setUserInfo },
+    action: { setIsLogin, setUserInfo, setIsAdmin },
   } = useContext(UserContext);
 
   useEffect(() => {
@@ -69,6 +69,7 @@ const LoginContainer = () => {
               .then((userInfo) => {
                 setUserInfo(userInfo);
                 setIsLogin(true);
+                setIsAdmin(userInfo.type === 'ADMIN'); // // 관리자 여부 업데이트
                 navigate('/');
               })
               .catch((err) => console.error(err));
@@ -79,7 +80,7 @@ const LoginContainer = () => {
         })
         .catch(() => setErrors(() => ({ global: t('Login_fail') })));
     },
-    [form, t, setIsLogin, setUserInfo],
+    [t, form, setUserInfo, setIsLogin, setIsAdmin, navigate],
   );
 
   const onChange = useCallback((e) => {
@@ -87,11 +88,7 @@ const LoginContainer = () => {
 
     setForm((form) => ({ ...form, [target.name]: target.value }));
   }, []);
-  return (
-    <>
-      <LoginForm onSubmit={onSubmit} onChange={onChange} errors={errors} />
-    </>
-  );
+  return <LoginForm onSubmit={onSubmit} onChange={onChange} errors={errors} />;
 };
 
 export default React.memo(LoginContainer);

@@ -54,3 +54,7 @@ export const getLoginInfo = () =>
         cookie.remove('token');
       });
   });
+
+export const logout = () => {
+  cookie.remove('token');
+};
