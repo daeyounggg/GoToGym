@@ -5,6 +5,8 @@ import { useContext } from 'react';
 import UserContext from '../../modules/user';
 import classNames from 'classnames';
 import colorNames from '../../styles/colors';
+import  Logo from "../../images/logo/logo.png";
+
 const { info } = colorNames;
 
 const OuterBox = styled.header`
@@ -19,6 +21,12 @@ const OuterBox = styled.header`
   left: 0;
   width: 100%;
   z-index: 1;
+
+  .left {
+     .logo {
+      width: 200px;
+    }
+  }
 
   .right {
     a {
@@ -50,7 +58,9 @@ const Header = () => {
   return (
     <OuterBox>
       <div className="left">
-        <NavLink to="/">로고</NavLink>
+        <NavLink to="/">
+            <img src={Logo} className="logo" alt="로고" />
+        </NavLink>
       </div>
 
       <div className="right">
