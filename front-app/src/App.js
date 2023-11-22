@@ -10,6 +10,10 @@ import Main from './pages/front/Main';
 import Login from './pages/front/member/Login';
 import Join from './pages/front/member/Join';
 import Logout from './pages/front/member/Logout';
+<<<<<<< HEAD
+=======
+import Mypage from './pages/front/member/Mypage';
+>>>>>>> support
 /* 클라이언트 페이지 E */
 
 /* 관리자 페이지 S */
@@ -47,6 +51,10 @@ const App = () => {
         <Route path="/join" element={<Join />} />
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
+<<<<<<< HEAD
+=======
+        <Route path="/mypage" element={<Mypage />} />
+>>>>>>> support
       </Route>
 
       <Route path="/admin" element={<AdminLayout />}>
