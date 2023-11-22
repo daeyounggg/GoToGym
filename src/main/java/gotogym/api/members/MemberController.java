@@ -7,6 +7,8 @@ import gotogym.api.members.dto.ResponseLogin;
 import gotogym.commons.Utils;
 import gotogym.commons.exceptions.BadRequestException;
 import gotogym.configs.jwt.CustomJwtFilter;
+import gotogym.entities.Member;
+import gotogym.models.member.MemberInfo;
 import gotogym.models.member.MemberInfoService;
 import gotogym.models.member.MemberJoinService;
 import gotogym.models.member.MemberLoginService;
@@ -17,11 +19,12 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.validation.Errors;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.stream.Collectors;
+import java.util.Map;
 
 @Slf4j
 @RestController
@@ -77,11 +80,19 @@ public class MemberController {
 
     private void errorProcess(Errors errors) {
         if (errors.hasErrors()) {
-            List<String> errorMessages = Utils.getMessages(errors);
-            throw new BadRequestException(errorMessages.stream().collect(Collectors.joining("||")));
+            Map<String, List<String>> errorMessages = Utils.getMessages(errors);
+            throw new BadRequestException(errorMessages);
         }
     }
 
+    @GetMapping("/info")
+    public JSONData<Member> info(@AuthenticationPrincipal MemberInfo memberInfo) {
+        Member member = memberInfo == null ? null : memberInfo.getMember();
+        JSONData<Member> data = new JSONData<>(member);
+        data.setSuccess(member != null);
+
+        return data;
+    }
 
     @GetMapping("/member_only")
     public void MemberOnlyUrl() {
