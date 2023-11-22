@@ -63,10 +63,10 @@ const Header = () => {
               {t('로그아웃')}
             </NavLink>
             <NavLink
-              to="/mypage"
+              to="/diary"
               className={({ isActive }) => classNames({ on: isActive })}
             >
-              {t('마이페이지')}
+              {t('MY DIARY')}
             </NavLink>
             {isAdmin && (
               <NavLink
