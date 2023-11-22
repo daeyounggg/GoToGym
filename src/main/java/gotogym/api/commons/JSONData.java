@@ -15,6 +15,6 @@ public class JSONData<T> {
     @NonNull
     private T data;
 
-    private String message;
+    private Object message;
     private HttpStatus status = HttpStatus.OK;
 }
