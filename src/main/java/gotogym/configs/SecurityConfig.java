@@ -14,6 +14,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 import org.springframework.web.filter.CorsFilter;
 
 @Configuration
@@ -43,10 +44,11 @@ public class SecurityConfig {
                     c.authenticationEntryPoint(jwtAuthenticationEntryPoint).accessDeniedHandler(jwtAccessDeniedHandler);
                 })
                 .authorizeHttpRequests(c -> {
-                   c.requestMatchers("/api/v1/member",
-                           "/api/v1/member/token",
-                           "/api/v1/member/login",
-                           "/api/v1/member/exists/**").permitAll()
+                   c.requestMatchers(
+                           new AntPathRequestMatcher("/api/v1/member"), new AntPathRequestMatcher("/api/v1/member/token"),
+                                   new AntPathRequestMatcher("/api/v1/member/login"),
+                                   new AntPathRequestMatcher("/api/v1/member/exists/**"),
+                                   new AntPathRequestMatcher("h2-console/*")).permitAll()
                            .anyRequest().authenticated();
                 });
 
