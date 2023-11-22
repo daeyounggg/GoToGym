@@ -3,7 +3,7 @@ import { SubTitle } from '../commons/TitleStyle';
 import { InputText } from '../commons/InputStyle';
 import { FiSquare, FiCheckSquare } from 'react-icons/fi';
 import { ButtonGroup, BigButton } from '../commons/ButtonStyle';
-import sizeNames from '../../styles/sizes';
+import sizeNames from '../../../../../Downloads/GoToGym-support2/GoToGym-support2/front-app/src/styles/sizes';
 import styled from 'styled-components';
 import loadable from '@loadable/component';
 import React from 'react';

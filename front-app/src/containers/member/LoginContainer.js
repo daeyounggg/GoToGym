@@ -1,9 +1,9 @@
 import LoginForm from '../../components/member/LoginForm';
-import React, { useState, useCallback, useContext, useEffect } from 'react';
+import React, { useState, useCallback, useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { loginProcess, getLoginInfo } from '../../api/member/login';
 import { useNavigate } from 'react-router-dom';
-import UserContext from '../../modules/user';
+import UserContext from '../../../../../Downloads/GoToGym-support2/GoToGym-support2/front-app/src/modules/user';
 import cookie from 'react-cookies';
 
 const LoginContainer = () => {
@@ -12,16 +12,8 @@ const LoginContainer = () => {
   const [errors, setErrors] = useState({});
   const navigate = useNavigate();
   const {
-    state: { isLogin },
     action: { setIsLogin, setUserInfo, setIsAdmin },
   } = useContext(UserContext);
-
-  useEffect(() => {
-    if (isLogin) {
-      // 로그인한 경우는 접근 불가
-      navigate(-1);
-    }
-  }, [isLogin, navigate]);
 
   const onSubmit = useCallback(
     (e) => {

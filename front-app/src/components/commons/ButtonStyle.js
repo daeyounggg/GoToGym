@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import colorNames from '../../styles/colors';
-import sizeNames from '../../styles/sizes';
+import colorNames from '../../../../../Downloads/GoToGym-support2/GoToGym-support2/front-app/src/styles/colors';
+import sizeNames from '../../../../../Downloads/GoToGym-support2/GoToGym-support2/front-app/src/styles/sizes';
 
 const { big } = sizeNames;
 const { primary, white } = colorNames;

@@ -1,14 +1,10 @@
 package gotogym.models.member;
 
-import gotogym.entities.Diary;
-import gotogym.repositories.DiaryRepository;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class DiaryService {
+    /*
     @Autowired
     private DiaryRepository diaryRepository;
 
@@ -22,5 +18,5 @@ public class DiaryService {
 
     public List<Diary> getExerciseRecordsByMemberId(Long memberId) {
         return diaryRepository.findByMemberId(memberId);
-    }
+    }*/
 }

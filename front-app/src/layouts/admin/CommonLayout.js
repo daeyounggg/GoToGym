@@ -1,17 +1,24 @@
 import Header from '../../outlines/admin/Header';
-import Footer from '../../outlines/admin/Footer';
-import { Outlet } from 'react-router-dom';
-import AdminOnlyContainer from '../../containers/admin/AdminOnlyContainer';
+import { Outlet, useLocation } from 'react-router-dom';
+import AdminOnly from '../../components/commons/auth/AdminOnly';
+import Side from '../../outlines/admin/Side';
 
 const CommonLayout = () => {
+  const location = useLocation();
+  const path = location.pathname.split('/');
+  path.shift();
+  let mainClass = path.join('_');
+  mainClass = mainClass ? `${mainClass}_page` : 'main_page';
   return (
-    <AdminOnlyContainer>
+    <AdminOnly>
       <Header />
-      <main>
-        <Outlet />
+      <main className={`admin_page ${mainClass}`}>
+        <Side />
+        <section>
+          <Outlet />
+        </section>
       </main>
-      <Footer />
-    </AdminOnlyContainer>
+    </AdminOnly>
   );
 };
 
