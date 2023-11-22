@@ -1,5 +1,5 @@
 import React, { useContext } from 'react';
-import UserContext from '../../../../../../Downloads/GoToGym-support2/GoToGym-support2/front-app/src/modules/user';
+import UserContext from '../../../modules/user';
 import loadable from '@loadable/component';
 const UnAuthorized = loadable(() => import('../errors/UnAuthorized'));
 

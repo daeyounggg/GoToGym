@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from 'react';
-import UserContext from '../../../../../../Downloads/GoToGym-support2/GoToGym-support2/front-app/src/modules/user';
+import UserContext from '../../../modules/user';
 import { useNavigate } from 'react-router-dom';
 /**
  * 비회원 전용 페이지에는 이 컴포넌트를 항상 감싸 주고,로그인 상태일떄는 이전 페이지로 이동

@@ -1,4 +1,4 @@
-import apiRequest from '../../../../../Downloads/GoToGym-support2/GoToGym-support2/front-app/src/lib/apiRequest';
+import apiRequest from '../../lib/apiRequest';
 import cookie from 'react-cookies';
 
 /**
