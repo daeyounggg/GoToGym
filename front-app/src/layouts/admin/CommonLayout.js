@@ -1,19 +1,4 @@
 import Header from '../../outlines/admin/Header';
-<<<<<<< HEAD
-import Footer from '../../outlines/admin/Footer';
-import { Outlet } from 'react-router-dom';
-import AdminOnlyContainer from '../../containers/admin/AdminOnlyContainer';
-
-const CommonLayout = () => {
-  return (
-    <AdminOnlyContainer>
-      <Header />
-      <main>
-        <Outlet />
-      </main>
-      <Footer />
-    </AdminOnlyContainer>
-=======
 import { Outlet, useLocation } from 'react-router-dom';
 import AdminOnly from '../../components/commons/auth/AdminOnly';
 import Side from '../../outlines/admin/Side';
@@ -34,7 +19,6 @@ const CommonLayout = () => {
         </section>
       </main>
     </AdminOnly>
->>>>>>> support
   );
 };
 

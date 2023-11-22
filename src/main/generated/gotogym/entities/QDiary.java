@@ -31,7 +31,7 @@ public class QDiary extends EntityPathBase<Diary> {
     //inherited
     public final StringPath createdBy = _super.createdBy;
 
-    public final DateTimePath<java.util.Date> eventDate = createDateTime("eventDate", java.util.Date.class);
+    public final DateTimePath<java.time.LocalDateTime> eventDate = createDateTime("eventDate", java.time.LocalDateTime.class);
 
     public final StringPath eventDescription = createString("eventDescription");
 

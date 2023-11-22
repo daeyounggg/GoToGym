@@ -7,7 +7,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
-import java.util.Date;
 
 
 @Data
@@ -28,7 +27,7 @@ public class Diary extends BaseMember{
     @JoinColumn(name = "userNo")
     private Member member;
 
-    private Date eventDate;
+    private LocalDateTime eventDate;
 
     private String eventDescription;
 }
