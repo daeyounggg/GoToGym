@@ -1,22 +1,34 @@
 package gotogym.api.members.dto;
 
-import lombok.Data;
+import gotogym.entities.Diary;
+import gotogym.entities.Member;
 import lombok.Getter;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.NoArgsConstructor;
+import org.springframework.format.annotation.DateTimeFormat;
 
-import java.util.Date;
+import java.time.LocalDate;
 
-@Data
-@ToString
-@Getter @Setter
+@NoArgsConstructor
+@Getter
 public class ScheduleDto {
-    int schedule_idx;
-    int schedule_num;
-    String schedule_subject;
-    String schedule_desc;
-    Date schedule_date;
 
-    String schedule_share;
-    String schedule_mycolor;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate sDate;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
+    private LocalDate eDate;
+
+    private String subject;
+    private String content;
+
+    public Diary toDiary(Member member){
+        Diary diary = Diary.builder()
+                .startDate(sDate)
+                .endDate(eDate)
+                .subject(subject)
+                .content(content)
+                .build();
+
+        return diary;
+    }
+
 }

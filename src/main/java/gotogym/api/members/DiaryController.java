@@ -1,30 +1,24 @@
 package gotogym.api.members;
 
+import gotogym.api.members.dto.ScheduleDto;
+import gotogym.models.member.DiaryService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/diaries")
+@RequestMapping("/api/v1/diaries")
+@RequiredArgsConstructor
 public class DiaryController {
-    /*
-
-    @Autowired
-    private DiaryService diaryService;
-
-    @GetMapping
-    public List<Diary> getAllDiaries() {
-        return diaryService.getAllDiaries();
-    }
-
-    @GetMapping("/token")
-    public List<Diary> getExerciseRecordsByMemberId(@PathVariable Long memberId) {
-        return diaryService.getExerciseRecordsByMemberId(memberId);
-    }
-
-
+    private final DiaryService diaryService;
     @PostMapping
-    public Diary saveDiary(@RequestBody Diary diary) {
-        return diaryService.saveDiary(diary);
+    public ResponseEntity saveEvent(@RequestBody ScheduleDto dto){
+
+        ScheduleDto scheduleDto = diaryService.save(dto);
+
+        return ResponseEntity.ok(scheduleDto);
     }
-     */
 }
