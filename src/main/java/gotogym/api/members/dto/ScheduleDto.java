@@ -1,6 +1,6 @@
 package gotogym.api.members.dto;
 
-import gotogym.entities.Diary;
+import gotogym.entities.DiaryData;
 import gotogym.entities.Member;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,8 +20,8 @@ public class ScheduleDto {
     private String subject;
     private String content;
 
-    public Diary toDiary(Member member){
-        Diary diary = Diary.builder()
+    public DiaryData toDiary(Member member){
+        DiaryData diary = DiaryData.builder()
                 .startDate(sDate)
                 .endDate(eDate)
                 .subject(subject)

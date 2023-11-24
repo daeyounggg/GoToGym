@@ -14,7 +14,7 @@ import java.time.LocalDate;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Diary extends BaseMember{
+public class DiaryData extends BaseMember{
     @Id
     @GeneratedValue
     private Long id;
