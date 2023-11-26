@@ -4,6 +4,10 @@ import { getLoginInfo } from './api/member/login';
 import FrontLayout from './layouts/front/CommonLayout';
 import AdminLayout from './layouts/admin/CommonLayout';
 import NotFound from './pages/commons/NotFound';
+import Side from './Side';
+import MemberList from './MemberList';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+
 
 /* 클라이언트 페이지 S */
 import Main from './pages/front/Main';
@@ -39,6 +43,7 @@ const App = () => {
       .catch((err) => console.log(err));
     /* 로그인 유지 처리 E */
     // eslint-disable-next-line react-hooks/exhaustive-deps
+
   }, []);
 
   return (
@@ -49,6 +54,7 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/diary" element={<Diary />} />
+        <Route path="/admin/member" component={MemberList} />
       </Route>
 
       <Route path="/admin" element={<AdminLayout />}>
@@ -57,6 +63,7 @@ const App = () => {
 
       <Route path="*" element={<NotFound />} />
     </Routes>
+
   );
 };
 
