@@ -45,10 +45,10 @@ public class SecurityConfig {
                     c.authenticationEntryPoint(jwtAuthenticationEntryPoint).accessDeniedHandler(jwtAccessDeniedHandler);
                 })
                 .authorizeHttpRequests(c -> {
-                   c.requestMatchers(
-                           new AntPathRequestMatcher("/api/v1/member"), new AntPathRequestMatcher("/api/v1/member/token"),
-                                   new AntPathRequestMatcher("/api/v1/member/login"),
-                                   new AntPathRequestMatcher("/api/v1/member/exists/**")).permitAll()
+                   c.requestMatchers("/api/v1/member",
+                           "/api/v1/member/token",
+                           "/api/v1/member/login",
+                           "/api/v1/member/exists/**").permitAll()
                            .anyRequest().authenticated();
                 });
 

@@ -11,26 +11,31 @@ import com.querydsl.core.types.dsl.PathInits;
 
 
 /**
- * QBoardData is a Querydsl query type for BoardData
+ * QDiary is a Querydsl query type for Diary
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QBoardData extends EntityPathBase<BoardData> {
+public class QDiaryData extends EntityPathBase<Diary> {
 
-    private static final long serialVersionUID = 1892297177L;
+    private static final long serialVersionUID = -637625748L;
 
     private static final PathInits INITS = PathInits.DIRECT2;
 
-    public static final QBoardData boardData = new QBoardData("boardData");
+    public static final QDiary diary = new QDiary("diary");
 
     public final QBaseMember _super = new QBaseMember(this);
 
     public final StringPath content = createString("content");
 
-    //inherited
-    public final DateTimePath<java.time.LocalDateTime> createdAt = _super.createdAt;
+    public final DateTimePath<java.time.LocalDateTime> createdAt = createDateTime("createdAt", java.time.LocalDateTime.class);
 
     //inherited
     public final StringPath createdBy = _super.createdBy;
+
+    public final DateTimePath<java.time.LocalDateTime> eventDate = createDateTime("eventDate", java.time.LocalDateTime.class);
+
+    public final StringPath eventDescription = createString("eventDescription");
+
+    public final NumberPath<Long> id = createNumber("id", Long.class);
 
     public final QMember member;
 
@@ -40,27 +45,23 @@ public class QBoardData extends EntityPathBase<BoardData> {
     //inherited
     public final StringPath modifiedBy = _super.modifiedBy;
 
-    public final NumberPath<Long> seq = createNumber("seq", Long.class);
-
-    public final StringPath subject = createString("subject");
-
-    public QBoardData(String variable) {
-        this(BoardData.class, forVariable(variable), INITS);
+    public QDiary(String variable) {
+        this(Diary.class, forVariable(variable), INITS);
     }
 
-    public QBoardData(Path<? extends BoardData> path) {
+    public QDiary(Path<? extends Diary> path) {
         this(path.getType(), path.getMetadata(), PathInits.getFor(path.getMetadata(), INITS));
     }
 
-    public QBoardData(PathMetadata metadata) {
+    public QDiary(PathMetadata metadata) {
         this(metadata, PathInits.getFor(metadata, INITS));
     }
 
-    public QBoardData(PathMetadata metadata, PathInits inits) {
-        this(BoardData.class, metadata, inits);
+    public QDiary(PathMetadata metadata, PathInits inits) {
+        this(Diary.class, metadata, inits);
     }
 
-    public QBoardData(Class<? extends BoardData> type, PathMetadata metadata, PathInits inits) {
+    public QDiary(Class<? extends Diary> type, PathMetadata metadata, PathInits inits) {
         super(type, metadata, inits);
         this.member = inits.isInitialized("member") ? new QMember(forProperty("member")) : null;
     }

@@ -4,6 +4,9 @@ import { getLoginInfo } from './api/member/login';
 import FrontLayout from './layouts/front/CommonLayout';
 import AdminLayout from './layouts/admin/CommonLayout';
 import NotFound from './pages/commons/NotFound';
+import MemberListContainer from './containers/member/MemberListContainer';
+
+
 
 /* 클라이언트 페이지 S */
 import Main from './pages/front/Main';
@@ -46,9 +49,12 @@ const App = () => {
       })
       .catch((err) => console.log(err));
     /* 로그인 유지 처리 E */
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
+
   return (
+
     <Routes>
       <Route path="/" element={<FrontLayout />}>
         <Route index element={<Main />} />
@@ -58,16 +64,13 @@ const App = () => {
         <Route path="/diary" element={<Diary />} />
       </Route>
 
-      <Route path="/Community" element={<Community/>} />
-
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<AdminMain />} />
-        <Route path="/admin/board" element={<AdminBoard />} />
-        <Route path="/admin/board/register" element={<BoardForm />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
     </Routes>
+
   );
 };
 
