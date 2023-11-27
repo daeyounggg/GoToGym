@@ -4,9 +4,8 @@ import { getLoginInfo } from './api/member/login';
 import FrontLayout from './layouts/front/CommonLayout';
 import AdminLayout from './layouts/admin/CommonLayout';
 import NotFound from './pages/commons/NotFound';
-import Side from './Side';
-import MemberList from './MemberList';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import MemberListContainer from './containers/member/MemberListContainer';
+
 
 
 /* 클라이언트 페이지 S */
@@ -46,7 +45,9 @@ const App = () => {
 
   }, []);
 
+
   return (
+
     <Routes>
       <Route path="/" element={<FrontLayout />}>
         <Route index element={<Main />} />
@@ -54,11 +55,11 @@ const App = () => {
         <Route path="/login" element={<Login />} />
         <Route path="/logout" element={<Logout />} />
         <Route path="/diary" element={<Diary />} />
-        <Route path="/admin/member" component={MemberList} />
       </Route>
-
-      <Route path="/admin" element={<AdminLayout />}>
+      
+      <Route path="admin" element={<AdminLayout />}>
         <Route index element={<AdminMain />} />
+        <Route path="member" element={<MemberListContainer />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
