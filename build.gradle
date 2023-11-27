@@ -56,6 +56,7 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
+
 // queryDSL 추가 : QueryDSL 빌드 옵션
 def querydslDir = "$buildDir/generated/querydsl"
 
@@ -72,3 +73,4 @@ configurations {
 compileQuerydsl {
     options.annotationProcessorPath = configurations.querydsl
 }
+
