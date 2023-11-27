@@ -1,5 +1,5 @@
+import React, { useContext, useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
 import { getLoginInfo } from './api/member/login';
 import FrontLayout from './layouts/front/CommonLayout';
 import AdminLayout from './layouts/admin/CommonLayout';
@@ -18,16 +18,24 @@ import Diary from './pages/front/member/Diary';
 
 /* 관리자 페이지 S */
 import AdminMain from './pages/admin/Main';
+import AdminBoard from './pages/admin/board/Main';
 /* 관리자 페이지 E */
 
 import UserContext from './modules/user';
+import BoardForm from './components/board/BoardForm';
+import Community from './components/community/Community';
+import BoardView from './components/community/BoardView';
+import BoardList from './components/community/BoardList';
+
 
 const App = () => {
+
   /* 로그인 유지 처리 S */
   const {
     state: { isLogin },
     action: { setUserInfo, setIsLogin, setIsAdmin },
   } = useContext(UserContext);
+
   useEffect(() => {
     if (isLogin) {
       return;
@@ -42,7 +50,6 @@ const App = () => {
       .catch((err) => console.log(err));
     /* 로그인 유지 처리 E */
     // eslint-disable-next-line react-hooks/exhaustive-deps
-
   }, []);
 
 
@@ -56,7 +63,7 @@ const App = () => {
         <Route path="/logout" element={<Logout />} />
         <Route path="/diary" element={<Diary />} />
       </Route>
-      
+
       <Route path="admin" element={<AdminLayout />}>
         <Route index element={<AdminMain />} />
         <Route path="member" element={<MemberListContainer />} />
@@ -69,3 +76,4 @@ const App = () => {
 };
 
 export default App;
+
