@@ -4,7 +4,7 @@ import BorderColorIcon from '@material-ui/icons/BorderColor';
 import TextField from '@material-ui/core/TextField';
 import styled from 'styled-components';
 import { useDispatch } from 'react-redux';
-import { addCalendarOR } from '../api/member/calendar';
+
 function Upload(props) {
   const dateTime = useRef();
   const plan = useRef();

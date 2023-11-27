@@ -17,12 +17,14 @@ import java.util.List;
 import java.util.Objects;
 
 @Controller("Controller2")
-@RequestMapping("/board")
+@RequestMapping("/diary")
 @RequiredArgsConstructor
 public class DiaryController implements ScriptExceptionProcess {
-    private final Utils utils;
+
+
     private final DiarySaveService saveService;
     private final DiaryInfoService infoService;
+    private final Utils utils;
 
     @GetMapping("/write/{bId}")
     public String write(@PathVariable("bId") String bId, @ModelAttribute DiaryForm form, Model model) {

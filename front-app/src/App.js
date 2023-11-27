@@ -69,7 +69,8 @@ const App = () => {
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<AdminMain />} />
         <Route path="member" element={<MemberListContainer />} />
-        <Route path="admin/board/register" element={<AdminBoard/>} />
+        <Route path="/admin/board" element={<AdminBoard/>} />
+        <Route path="/admin/board/register" element={<BoardForm/>} />
       </Route>
 
 
