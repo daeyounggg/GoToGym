@@ -8,5 +8,7 @@ public class DiaryDataNotFoundException extends AlertBackException {
         super("등록되지 않은 게시글 입니다.");
         setStatus(HttpStatus.NOT_FOUND);
     }
+
+
 }
 
