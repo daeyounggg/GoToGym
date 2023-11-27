@@ -5,7 +5,7 @@ import App from './App';
 import { BrowserRouter } from 'react-router-dom';
 import { HelmetProvider } from 'react-helmet-async';
 import ErrorPage from './pages/commons/ErrorPage';
-
+import 'bootstrap/dist/css/bootstrap.css';
 import { UserProvider } from './modules/user';
 
 import reportWebVitals from './reportWebVitals';
