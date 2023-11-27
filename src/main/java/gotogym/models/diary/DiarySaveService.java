@@ -1,7 +1,7 @@
 package gotogym.models.diary;
 
 import gotogym.api.diaries.DiaryForm;
-import gotogym.entities.BoardData;
+import gotogym.entities.DiaryData;
 import gotogym.repositories.DiaryDataRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
@@ -17,11 +17,11 @@ public class DiarySaveService {
         Long seq = form.getSeq();
         String mode = Objects.requireNonNullElse(form.getMode(), "add");
 
-        BoardData data = null;
+        DiaryData data = null;
         if (mode.equals("update") && seq != null) {
-            data = diaryDataRepository.findById(seq).orElseThrow(DiaryDataRepository::new);
+            data = diaryDataRepository.findById(seq).orElseThrow(DiaryDataNotFoundException::new);
         } else {
-            data = new BoardData();
+            data = new DiaryData();
         }
 
         data.setSubject(form.getSubject());
