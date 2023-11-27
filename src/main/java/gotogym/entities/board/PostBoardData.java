@@ -16,7 +16,7 @@ import java.util.UUID;
         @Index(name="idx_boarddata_category", columnList = "category DESC"),
         @Index(name="idx_boarddata_createAt", columnList = "createdAt DESC")
 })
-public class BoardData extends BaseEntity {
+public class PostBoardData extends BaseEntity {
     @Id @GeneratedValue
     private Long id; // 게시글 번호
     @ManyToOne(fetch=FetchType.LAZY)

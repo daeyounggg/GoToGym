@@ -1,5 +1,5 @@
+import React, { useContext, useEffect, useState } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { useContext, useEffect } from 'react';
 import { getLoginInfo } from './api/member/login';
 import FrontLayout from './layouts/front/CommonLayout';
 import AdminLayout from './layouts/admin/CommonLayout';
@@ -15,16 +15,21 @@ import Diary from './pages/front/member/Diary';
 
 /* 관리자 페이지 S */
 import AdminMain from './pages/admin/Main';
+import AdminBoard from './pages/admin/board/Main';
 /* 관리자 페이지 E */
 
 import UserContext from './modules/user';
+import BoardForm from './components/board/BoardForm';
+
 
 const App = () => {
+
   /* 로그인 유지 처리 S */
   const {
     state: { isLogin },
     action: { setUserInfo, setIsLogin, setIsAdmin },
   } = useContext(UserContext);
+
   useEffect(() => {
     if (isLogin) {
       return;
@@ -38,7 +43,6 @@ const App = () => {
       })
       .catch((err) => console.log(err));
     /* 로그인 유지 처리 E */
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -53,6 +57,8 @@ const App = () => {
 
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<AdminMain />} />
+        <Route path="/admin/board" element={<AdminBoard />} />
+        <Route path="/admin/board/register" element={<BoardForm />} />
       </Route>
 
       <Route path="*" element={<NotFound />} />
