@@ -70,7 +70,7 @@
 - 등록/수정
 - 식단작성을 통한 칼로리 조절
 - 회원권한, 관리
-  
+  ![image](https://github.com/daeyounggg/GoToGym/assets/137499604/ce421055-6c35-4911-a890-2165a2d4ee54)
  ![image](https://github.com/daeyounggg/GoToGym/assets/137499604/3b238dab-c7e4-43f9-8424-0da14a9c46c3)
 
 
