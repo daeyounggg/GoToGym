@@ -94,12 +94,10 @@ const FormBox = styled.form`
 `;
 const BoardForm = ({
   formData,
-  category,
   onChange,
   handleClick,
   handleInputChange,
   handleSubmit,
-  handleCategoryChange,
   handleNumericChange,
   handleCheckboxChange,
 }) => {
