@@ -6,5 +6,4 @@ import org.springframework.data.querydsl.QuerydslPredicateExecutor;
 
 public interface DiaryDataRepository extends JpaRepository<DiaryData, Long>, QuerydslPredicateExecutor<DiaryData> {
 
-
 }
