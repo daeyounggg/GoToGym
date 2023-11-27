@@ -34,8 +34,10 @@ public class Utils {
         }
 
        return data;
+    }
 
+    public String tpl(String tplPath) {
 
-
+        return String.format("%s/" + tplPath);
     }
 }

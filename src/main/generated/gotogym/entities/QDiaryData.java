@@ -14,7 +14,7 @@ import com.querydsl.core.types.dsl.PathInits;
  * QDiary is a Querydsl query type for Diary
  */
 @Generated("com.querydsl.codegen.DefaultEntitySerializer")
-public class QDiary extends EntityPathBase<Diary> {
+public class QDiaryData extends EntityPathBase<Diary> {
 
     private static final long serialVersionUID = -637625748L;
 
