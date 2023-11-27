@@ -20,6 +20,9 @@ import AdminBoard from './pages/admin/board/Main';
 
 import UserContext from './modules/user';
 import BoardForm from './components/board/BoardForm';
+import Community from './components/community/Community';
+import BoardView from './components/community/BoardView';
+import BoardList from './components/community/BoardList';
 
 
 const App = () => {
@@ -54,6 +57,8 @@ const App = () => {
         <Route path="/logout" element={<Logout />} />
         <Route path="/diary" element={<Diary />} />
       </Route>
+
+      <Route path="/Community" element={<Community/>} />
 
       <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<AdminMain />} />

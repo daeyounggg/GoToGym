@@ -30,10 +30,6 @@ const FormBox = styled.form`
     border-radius: 3px;
   }
 
-  input[type='radio'] {
-    display: none;
-  }
-
   .btns {
     display: flex;
     width: 400px;
@@ -98,8 +94,8 @@ const BoardForm = ({
   handleClick,
   handleInputChange,
   handleSubmit,
-  handleNumericChange,
-  handleCheckboxChange,
+  handleSentenceClick,
+  handleRadioChange,
 }) => {
   return (
     <section>
@@ -140,8 +136,7 @@ const BoardForm = ({
                   name="use"
                   value={formData?.use}
                   id="use_true"
-                  checked={formData?.use === 'true'}
-                  onChange={handleClick}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="use_true">사용</label>
                 <input
@@ -149,8 +144,7 @@ const BoardForm = ({
                   name="use"
                   value="false"
                   id="use_false"
-                  checked={formData?.use === 'false'}
-                  onChange={handleClick}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="use_false">미사용</label>
               </td>
@@ -162,8 +156,7 @@ const BoardForm = ({
                   type="number"
                   name="rowsOfPage"
                   id="rowsOfPage"
-                  value={formData?.rowsOfPage || ''}
-                  onChange={handleNumericChange}
+                  onChange={handleClick}
                 />
               </td>
             </tr>
@@ -175,8 +168,7 @@ const BoardForm = ({
                   name="showViewList"
                   value={formData?.showViewList}
                   id="showViewList_true"
-                  checked={formData?.showViewList === 'true'}
-                  onChange={handleClick}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="showViewList_true">사용</label>
 
@@ -185,8 +177,7 @@ const BoardForm = ({
                   name="showViewList"
                   value={formData?.showViewList}
                   id="showViewList_false"
-                  checked={formData?.showViewList === 'false'}
-                  onChange={handleClick}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="showViewList_false">미사용</label>
               </td>
@@ -221,8 +212,7 @@ const BoardForm = ({
                   name="listAccessRole"
                   value={formData?.listAccessRole}
                   id="listAccessRole_ALL"
-                  checked={formData?.listAccessRole === 'ALL'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="listAccessRole_ALL">
                   전체(비회원+회원+관리자)
@@ -233,8 +223,7 @@ const BoardForm = ({
                   name="listAccessRole"
                   value={formData?.listAccessRole}
                   id="listAccessRole_USER"
-                  checked={formData?.listAccessRole === 'USER'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="listAccessRole_USER">회원</label>
 
@@ -243,8 +232,7 @@ const BoardForm = ({
                   name="listAccessRole"
                   value="ADMIN"
                   id="listAccessRole_ADMIN"
-                  checked={formData?.listAccessRole === 'ADMIN'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="listAccessRole_ADMIN">관리자</label>
               </td>
@@ -257,8 +245,7 @@ const BoardForm = ({
                   name="viewAccessRole"
                   value="ALL"
                   id="viewAccessRole_ALL"
-                  checked={formData?.viewAccessRole === 'ALL'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="viewAccessRole_ALL">
                   전체(비회원+회원+관리자)
@@ -269,8 +256,7 @@ const BoardForm = ({
                   name="viewAccessRole"
                   value="USER"
                   id="viewAccessRole_USER"
-                  checked={formData?.viewAccessRole === 'USER'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="viewAccessRole_USER">회원</label>
 
@@ -279,8 +265,7 @@ const BoardForm = ({
                   name="viewAccessRole"
                   value="ADMIN"
                   id="viewAccessRole_ADMIN"
-                  checked={formData?.viewAccessRole === 'ADMIN'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="viewAccessRole_ADMIN">관리자</label>
               </td>
@@ -293,8 +278,7 @@ const BoardForm = ({
                   name="writeAccessRole"
                   value="ALL"
                   id="writeAccessRole_ALL"
-                  checked={formData?.writeAccessRole === 'ALL'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="writeAccessRole_ALL">
                   전체(비회원+회원+관리자)
@@ -305,8 +289,7 @@ const BoardForm = ({
                   name="writeAccessRole"
                   value="USER"
                   id="writeAccessRole_USER"
-                  checked={formData?.writeAccessRole === 'USER'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="writeAccessRole_USER">회원</label>
 
@@ -315,8 +298,7 @@ const BoardForm = ({
                   name="writeAccessRole"
                   value="ADMIN"
                   id="writeAccessRole_ADMIN"
-                  checked={formData?.writeAccessRole === 'ADMIN'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="writeAccessRole_ADMIN">관리자</label>
               </td>
@@ -329,8 +311,7 @@ const BoardForm = ({
                   name="replyAccessRole"
                   value="ALL"
                   id="replyAccessRole_ALL"
-                  checked={formData?.replyAccessRole === 'ALL'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="replyAccessRole_ALL">
                   전체(비회원+회원+관리자)
@@ -341,8 +322,7 @@ const BoardForm = ({
                   name="replyAccessRole"
                   value="USER"
                   id="replyAccessRole_USER"
-                  checked={formData?.replyAccessRole === 'USER'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="replyAccessRole_USER">회원</label>
                 <input
@@ -350,8 +330,7 @@ const BoardForm = ({
                   name="replyAccessRole"
                   value="ADMIN"
                   id="replyAccessRole_ADMIN"
-                  checked={formData?.replyAccessRole === 'ADMIN'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="replyAccessRole_ADMIN">관리자</label>
               </td>
@@ -364,8 +343,7 @@ const BoardForm = ({
                   name="commentAccessRole"
                   value="ALL"
                   id="commentAccessRole_ALL"
-                  checked={formData?.commentAccessRole === 'ALL'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="commentAccessRole_ALL">
                   전체(비회원+회원+관리자)
@@ -376,8 +354,7 @@ const BoardForm = ({
                   name="commentAccessRole"
                   value="USER"
                   id="commentAccessRole_USER"
-                  checked={formData?.commentAccessRole === 'USER'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="commentAccessRole_USER">회원</label>
 
@@ -386,8 +363,7 @@ const BoardForm = ({
                   name="commentAccessRole"
                   value="ADMIN"
                   id="commentAccessRole_ADMIN"
-                  checked={formData?.commentAccessRole === 'ADMIN'}
-                  onChange={handleClick}
+                  onChange={handleRadioChange}
                 />
                 <label htmlFor="commentAccessRole_ADMIN">관리자</label>
               </td>
@@ -405,7 +381,7 @@ const BoardForm = ({
                   name="useEditor"
                   value="true"
                   id="useEditor_true"
-                  defaultChecked={formData?.useEditor === 'true'}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="useEditor_true">사용</label>
 
@@ -414,7 +390,7 @@ const BoardForm = ({
                   name="useEditor"
                   value="false"
                   id="useEditor_false"
-                  checked={formData?.useEditor === 'false'}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="useEditor_false">미사용</label>
               </td>
@@ -427,8 +403,7 @@ const BoardForm = ({
                   name="useAttachFile"
                   value="true"
                   id="useAttachFile_true"
-                  checked={formData?.useAttachFile === 'true'}
-                  onChange={handleInputChange}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="useAttachFile_true">사용</label>
 
@@ -437,8 +412,7 @@ const BoardForm = ({
                   name="useAttachFile"
                   value="false"
                   id="useAttachFile_false"
-                  checked={formData?.useAttachFile === 'false'}
-                  onChange={handleCheckboxChange}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="useAttachFile_false">미사용</label>
               </td>
@@ -451,8 +425,7 @@ const BoardForm = ({
                   name="useAttachImage"
                   value="true"
                   id="useAttachImage_true"
-                  checked={formData?.useAttachImage === 'true'}
-                  onChange={handleClick}
+                  onChange={handleSentenceClick}
                 />
 
                 <label htmlFor="useAttachImage_true">사용</label>
@@ -461,8 +434,7 @@ const BoardForm = ({
                   name="useAttachImage"
                   value="false"
                   id="useAttachImage_false"
-                  checked={formData?.useAttachImage === 'false'}
-                  onChange={handleClick}
+                  onChange={handleSentenceClick}
                 />
                 <label htmlFor="useAttachImage_false">미사용</label>
               </td>
@@ -475,8 +447,7 @@ const BoardForm = ({
                   name="locationAfterWriting"
                   value="view"
                   id="locationAfterWriting_view"
-                  checked={formData?.locationAfterWriting === 'view'}
-                  onChange={handleClick}
+                  onChange={handleInputChange}
                 />
                 <label htmlFor="locationAfterWriting_view">게시글</label>
 
@@ -485,8 +456,7 @@ const BoardForm = ({
                   name="locationAfterWriting"
                   value="list"
                   id="locationAfterWriting_list"
-                  checked={formData?.locationAfterWriting === 'list'}
-                  onChange={handleClick}
+                  onChange={handleInputChange}
                 />
                 <label htmlFor="locationAfterWriting_list">목록</label>
               </td>
@@ -499,6 +469,7 @@ const BoardForm = ({
                   name="useReply"
                   value="true"
                   id="useReply_true"
+                  onChange={handleClick}
                 />
                 <label htmlFor="useReply_true">사용</label>
 
@@ -507,33 +478,9 @@ const BoardForm = ({
                   name="useReply"
                   value="false"
                   id="useReply_false"
-                  checked="checked"
+                  onChange={handleClick}
                 />
                 <label htmlFor="useReply_false">미사용</label>
-              </td>
-            </tr>
-            <tr>
-              <th>댓글사용</th>
-              <td>
-                <input
-                  type="radio"
-                  name="useReply"
-                  value="true"
-                  id="useReply_true"
-                  checked={formData?.useReply === 'true'}
-                  onChange={handleClick}
-                />
-                <label htmlFor="useComment_true">사용</label>
-
-                <input
-                  type="radio"
-                  name="useReply"
-                  value="false"
-                  id="useReply_false"
-                  checked={formData?.useReply === 'false'}
-                  onChange={handleClick}
-                />
-                <label htmlFor="useComment_false">미사용</label>
               </td>
             </tr>
             <tr>
@@ -544,7 +491,6 @@ const BoardForm = ({
                   name="skin"
                   value="default"
                   id="skin_default"
-                  checked={formData?.skin === 'default'}
                   onChange={handleClick}
                 />
                 <label htmlFor="skin_default">기본</label>
@@ -554,7 +500,6 @@ const BoardForm = ({
                   name="skin"
                   value="gallery"
                   id="skin_gallery"
-                  checked={formData?.skin === 'gallery'}
                   onChange={handleClick}
                 />
                 <label htmlFor="skin_gallery">갤러리</label>

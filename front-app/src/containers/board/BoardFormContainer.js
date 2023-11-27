@@ -2,12 +2,13 @@ import React, { useCallback, useState } from 'react';
 import BoardForm from '../../components/board/BoardForm';
 import { produce } from 'immer';
 
+// 초기 게시판 폼 상태
 const initialBoardFormState = {
   mode: 'null',
   bId: '',
   bName: '',
   use: 'true',
-  rowsOfPage: '',
+  rowsOfPage: '20',
   showViewList: 'true',
   category: 'defaultCategory',
   listAccessRole: 'ALL',
@@ -25,19 +26,49 @@ const initialBoardFormState = {
 };
 
 const BoardFormContainer = () => {
+  // 폼 데이터와 이미지 상태
   const [formData, setFormData] = useState(initialBoardFormState);
-  const [imageSrc, setImageSrc] = useState("../../images/button/chk-off.png"); // 초기 상태는 선택이 되지 않은 상태를 나타내기 위함
-  const [isClicked, setIsClicked] = useState(false); // 클릭 여부를 state로 관리
+  const [isClicked, setIsClicked] = useState(false);
 
+  // 이미지 클릭 핸들러
   const handleClick = () => {
     if (isClicked) {
+      setFormData((prevData) => ({
+        ...prevData,
+        use: '_false',  // 'false'가 "미사용" 상태를 나타낸다고 가정합니다.
+      }));
       setImageSrc("../../images/button/chk-off.png");
-      setIsClicked(false); // 초기 상태 false 일 땐 초기 상태 이미지 src
+      setIsClicked(false);
     } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        use: '_true',  // 'true'가 "사용" 상태를 나타낸다고 가정합니다.
+      }));
       setImageSrc("../../images/button/chk-on.png");
-      setIsClicked(true); // true일 땐 변경될 이미지 src
+      setIsClicked(true);
+    }
+  }
+
+  // '문장' 상태도 포함
+  const handleSentenceClick = () => {
+    if (isClicked) {
+      setFormData((prevData) => ({
+        ...prevData,
+        sentence: '_false',  // 'false'가 "미사용" 상태를 나타낸다고 가정합니다.
+      }));
+      setImageSrc("../../images/button/other-image-off.png");
+      setIsClicked(false);
+    } else {
+      setFormData((prevData) => ({
+        ...prevData,
+        sentence: '_true',  // 'true'가 "사용" 상태를 나타낸다고 가정합니다.
+      }));
+      setImageSrc("../../images/button/other-image-on.png");
+      setIsClicked(true);
     }
   };
+
+  // 입력 값 변경 핸들러
   const onChange = useCallback((e) => {
     const target = e.currentTarget;
     setFormData(
@@ -47,8 +78,7 @@ const BoardFormContainer = () => {
     );
   }, []);
 
-
-  // 텍스트, 숫자, 체크박스, 라디오 입력의 변경을 처리하는 함수
+  // 입력 값 변경 핸들러 (체크박스)
   const handleInputChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prevData) => ({
@@ -57,30 +87,31 @@ const BoardFormContainer = () => {
     }));
   };
 
-  // 숫자 입력이 변경될 때 호출되는 함수
+  // 입력 값 변경 핸들러 (숫자)
   const handleNumericChange = (e) => {
     const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: value === '' ? '' : parseInt(value, 10), // 빈 문자열이면 그대로 유지, 아니면 정수로 변환
+      [name]: value === '' ? '' : parseInt(value, 10),
     }));
   };
-  const handleCheckboxChange = (e) => {
-    const { name, checked } = e.target;
+
+  // 입력 값 변경 핸들러 (라디오)
+  const handleRadioChange = (e) => {
+    const { name, value } = e.target;
     setFormData((prevData) => ({
       ...prevData,
-      [name]: checked ? 'true' : 'false',
+      [name]: value,
     }));
   };
 
-
+  // 폼 제출 핸들러
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('폼 제출됨:', formData);
-  }
+  };
 
-
-
+  // BoardForm 컴포넌트 렌더링
   return (
     <BoardForm
       formData={formData}
@@ -90,7 +121,8 @@ const BoardFormContainer = () => {
       handleSubmit={handleSubmit}
       handleNumericChange={handleNumericChange}
       onClick={handleClick}
-      Imagesrc={imageSrc}
+      handleCheckboxChange={handleCheckboxChange}
+      handleSentenceClick={handleSentenceClick}
     />
   );
 };
