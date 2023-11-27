@@ -4,7 +4,6 @@ import gotogym.commons.exceptions.AlertBackException;
 import lombok.Setter;
 import org.springframework.http.HttpStatus;
 
-
 @Setter
 public class DiaryDataNotFoundException extends AlertBackException {
     private HttpStatus status;
