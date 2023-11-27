@@ -28,12 +28,12 @@ public class DiaryController implements ScriptExceptionProcess {
     public String write(@PathVariable("bId") String bId, @ModelAttribute DiaryForm form, Model model) {
         commonProcess(bId, "write", model);
 
-        return utils.tpl("board/write");
+        return utils.tpl("diary/write");
     }
 
     @GetMapping("/update/{seq}")
     public String update(@PathVariable("seq") Long seq, Model model) {
-        return utils.tpl("board/update");
+        return utils.tpl("diary/update");
     }
 
     @PostMapping("/save")
@@ -44,12 +44,12 @@ public class DiaryController implements ScriptExceptionProcess {
         commonProcess(bId, mode, model);
 
         if (errors.hasErrors()) {
-            return utils.tpl("board/" + mode);
+            return utils.tpl("diary/" + mode);
         }
 
         saveService.save(form);
 
-        return "redirect:/board/list/" + bId;
+        return "redirect:/diary/list/" + bId;
     }
 
     @GetMapping("/view/{seq}")
@@ -57,15 +57,15 @@ public class DiaryController implements ScriptExceptionProcess {
 
         DiaryData data = infoService.get(seq);
 
-        model.addAttribute("boardData", data);
+        model.addAttribute("diaryData", data);
 
-        return utils.tpl("board/view");
+        return utils.tpl("diary/view");
     }
 
     @GetMapping("/delete/{seq}")
     public String delete(@PathVariable Long seq) {
 
-        return "redirect:/board/list/게시판 ID";
+        return "redirect:/diary/list/게시판 ID";
     }
 
     private void commonProcess(String bId, String mode, Model model) {
@@ -81,7 +81,7 @@ public class DiaryController implements ScriptExceptionProcess {
             addCommonScript.add("ckeditor/ckeditor");
             addCommonScript.add("fileManager");
 
-            addScript.add("board/form");
+            addScript.add("diary/form");
         }
 
         model.addAttribute("addCommonScript", addCommonScript);
