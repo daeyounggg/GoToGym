@@ -44,6 +44,7 @@ public class SecurityConfig {
                 })
                 .authorizeHttpRequests(c -> {
                    c.requestMatchers("/api/v1/member",
+                           "/api/v1/diaries",
                            "/api/v1/member/token",
                            "/api/v1/member/login",
                            "/api/v1/member/exists/**").permitAll()

@@ -6,7 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 
 
 @Data
@@ -14,20 +14,21 @@ import java.time.LocalDateTime;
 @Entity
 @NoArgsConstructor
 @AllArgsConstructor
-public class Diary extends BaseMember{
+public class DiaryData extends BaseMember{
     @Id
     @GeneratedValue
     private Long id;
 
+    @Column(length = 100, nullable = false)
+    private String subject;
+
+    @Lob
+    @Column(nullable = false)
     private String content;
 
-    private LocalDateTime createdAt;
+    private LocalDate startDate;
+    private LocalDate endDate;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "userNo")
-    private Member member;
 
-    private LocalDateTime eventDate;
 
-    private String eventDescription;
 }
