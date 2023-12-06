@@ -64,10 +64,15 @@ const App = () => {
         <Route path="/diary" element={<Diary />} />
       </Route>
 
-      <Route path="admin" element={<AdminLayout />}>
+      <Route path="/community" element={<Community />} />
+
+      <Route path="/admin" element={<AdminLayout />}>
         <Route index element={<AdminMain />} />
         <Route path="member" element={<MemberListContainer />} />
+        <Route path="/admin/board" element={<AdminBoard/>} />
+        <Route path="/admin/board/register" element={<BoardForm/>} />
       </Route>
+
 
       <Route path="*" element={<NotFound />} />
     </Routes>
@@ -76,4 +81,3 @@ const App = () => {
 };
 
 export default App;
-

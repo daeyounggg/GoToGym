@@ -1,5 +1,6 @@
 package gotogym.models.member;
 
+import gotogym.commons.constants.MemberType;
 import gotogym.entities.Member;
 import lombok.Builder;
 import lombok.Data;
@@ -8,13 +9,14 @@ import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
-@Data
-@Builder
+@Data @Builder
 public class MemberInfo implements UserDetails {
 
+    private Long userNo;
     private String email;
     private String name;
     private Member member;
+    private MemberType memberType;
 
     private Collection<? extends GrantedAuthority> authorities;
 

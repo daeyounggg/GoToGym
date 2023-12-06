@@ -1,8 +1,6 @@
 package gotogym.entities;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.EntityListeners;
-import jakarta.persistence.MappedSuperclass;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.data.annotation.CreatedDate;
@@ -21,4 +19,7 @@ public abstract class BaseEntity {
     @LastModifiedDate
     @Column(insertable = false)
     private LocalDateTime modifiedAt;
+
+    @Column(insertable = false)
+    private LocalDateTime deletedAt; // 삭제 일시
 }

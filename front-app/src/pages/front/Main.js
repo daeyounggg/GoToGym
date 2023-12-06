@@ -1,12 +1,53 @@
-import FileUploader from '../../components/commons/FileUploader';
+import styled from 'styled-components';
+import { Navigate, NavLink } from 'react-router-dom';
+import classNames from 'classnames';
+import { useTranslation } from 'react-i18next';
+import { useContext } from 'react';
+import UserContext from '../../modules/user';
+import Diary from './member/Diary';
 
+const OuterBox = styled.nav`
+  .menubar{
+    text-align: center;
+    padding: 15px;
+    margin-left: 15px;
+  }
+`;
 const Main = () => {
+  const { t } = useTranslation();
+  const {
+    state: { isLogin, isAdmin },
+  } = useContext(UserContext);
   return (
-    <>
-      <FileUploader>파일업로드</FileUploader>
-      <h1>메인페이지</h1>
-    </>
-  );
+    <OuterBox>
+    <div className="menubar">
+      <NavLink
+        to="/info"
+        className={({ isActive }) => classNames({ on: isActive })}
+      >
+        {t('운동정보')}
+      </NavLink>
+      <NavLink
+        to="/Diary"
+        className={({ isActive }) => classNames({ on: isActive })}
+      >
+        {t('다이어리')}
+      </NavLink>
+      <NavLink
+        to="/Community"
+        className={({ isActive }) => classNames({ on: isActive })}
+      >
+        {t('커뮤니티')}
+      </NavLink>
+      <NavLink
+        to="/location"
+        className={({ isActive }) => classNames({ on: isActive })}
+      >
+        {t('내 주변 헬스장')}
+      </NavLink>
+    </div>
+    </OuterBox>
+  )
 };
 
 export default Main;

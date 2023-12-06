@@ -4,6 +4,8 @@ import { useTranslation } from 'react-i18next';
 import styled from 'styled-components';
 import sizeNames from '../../styles/sizes';
 import { OuterBox } from '../commons/OutlineStyle';
+import Upload from '../Diray/upload';
+
 const { big, medium } = sizeNames;
 
 const NaviBox = styled.div`

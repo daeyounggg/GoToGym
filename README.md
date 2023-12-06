@@ -12,10 +12,10 @@
  <img src="https://img.shields.io/badge/java-007396?style=for-the-badge&logo=java&logoColor=white"><img src="https://img.shields.io/badge/Spring-6DB33F?style=for-the-badge&logo=Spring&logoColor=green"><img src="https://img.shields.io/badge/Spring Boot-6DB33F?style=for-the-badge&logo=Spring Boot&logoColor=yellow"><img src="https://img.shields.io/badge/oracle-F80000?style=for-the-badge&logo=oracle&logoColor=white"> 
 
 ## 🦹‍ Team
-|김대영|목진혁|조혜나|조소미|
-|:---:|:---:|:---:|:---:|
-|[daeyounggg](https://github.com/daeyounggg)|[MJinHyuk](https://github.com/MJinHyuk)|[hyenaaaaaaa](https://github.com/hyenaaaaaaa)|[somi9954](https://github.com/somi9954)|
-|![](https://avatars.githubusercontent.com/u/137499608?v=4)|![](https://avatars.githubusercontent.com/u/147026593?v=4)|![](https://avatars.githubusercontent.com/u/147026641?v=4)|![](https://avatars.githubusercontent.com/u/137499604?v=4)|
+|김대영|목진혁|조소미|
+|:---:|:---:|:---:|
+|[daeyounggg](https://github.com/daeyounggg)|[MJinHyuk](https://github.com/MJinHyuk)|[somi9954](https://github.com/somi9954)|
+|![](https://avatars.githubusercontent.com/u/137499608?v=4)|![](https://avatars.githubusercontent.com/u/147026593?v=4)|![](https://avatars.githubusercontent.com/u/137499604?v=4)|
 
 
 # 📋 기능 명세서
@@ -26,6 +26,9 @@
 - 회원 전체 조회
 - 아이디 찾기
 - 비밀번호 찾기
+
+![image](https://github.com/daeyounggg/GoToGym/assets/137499604/f16a5ab9-73e9-4be7-b0a9-9c6ce0361ce1)
+
 
 ## 2. 회원
 ### 로그인
@@ -57,6 +60,9 @@
 - 게시판 목록
 - 게시판 등록/수정
 - 게시글 관리
+![image](https://github.com/daeyounggg/GoToGym/assets/137499604/297a9c70-e791-4ed2-a031-e75f7cb4ce2c)
+![image](https://github.com/daeyounggg/GoToGym/assets/137499604/3b42801f-efb1-4065-882f-9337f72e3e0e)
+
 
 ## 4. 다이어리
 ### 캘린더
@@ -64,8 +70,11 @@
 - 등록/수정
 - 식단작성을 통한 칼로리 조절
 - 회원권한, 관리
+  ![image](https://github.com/daeyounggg/GoToGym/assets/137499604/ce421055-6c35-4911-a890-2165a2d4ee54)
+ ![image](https://github.com/daeyounggg/GoToGym/assets/137499604/3b238dab-c7e4-43f9-8424-0da14a9c46c3)
+
 
 # 💡 담당 파트
-- 관리자, 회원 : 
-- 게시판 관리 : 
-- 다이어리 : 
+- 관리자, 회원 : 목진혁
+- 게시판 관리 :  조소미
+- 다이어리 : 김대영

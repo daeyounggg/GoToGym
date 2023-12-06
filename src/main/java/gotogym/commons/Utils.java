@@ -1,10 +1,14 @@
 package gotogym.commons;
 
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.springframework.validation.Errors;
 import org.springframework.validation.FieldError;
 
 import java.util.*;
 
+@Component
+@RequiredArgsConstructor
 public class Utils {
     private static ResourceBundle validationsBundle;
     private static ResourceBundle errorsBundle;
@@ -34,8 +38,10 @@ public class Utils {
         }
 
        return data;
+    }
 
+    public String tpl(String tplPath) {
 
-
+        return String.format("%s/" + tplPath);
     }
 }
